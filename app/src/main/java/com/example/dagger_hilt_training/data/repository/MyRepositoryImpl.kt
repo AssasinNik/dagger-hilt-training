@@ -4,8 +4,9 @@ import android.app.Application
 import com.example.dagger_hilt_training.R
 import com.example.dagger_hilt_training.data.remote.MyApi
 import com.example.dagger_hilt_training.domain.repository.MyRepository
+import javax.inject.Inject
 
-class MyRepositoryImpl(
+class MyRepositoryImpl @Inject constructor(
     private val api: MyApi,
     private val appContext: Application
 ): MyRepository {
@@ -18,6 +19,5 @@ class MyRepositoryImpl(
     }
 
     override suspend fun getTestCall() {
-        TODO("Not yet implemented")
     }
 }

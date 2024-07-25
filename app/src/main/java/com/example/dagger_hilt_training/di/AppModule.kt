@@ -1,5 +1,6 @@
 package com.example.dagger_hilt_training.di
 
+import android.app.Application
 import com.example.dagger_hilt_training.data.remote.MyApi
 import com.example.dagger_hilt_training.data.repository.MyRepositoryImpl
 import com.example.dagger_hilt_training.domain.repository.MyRepository
@@ -8,6 +9,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -25,8 +27,22 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideMyRepository(api: MyApi):MyRepository{
-        return  MyRepositoryImpl(api)
+    fun provideMyRepository(
+        api: MyApi,
+        app: Application,
+        @Named("hello1") hello1: String
+    ):MyRepository{
+        return  MyRepositoryImpl(api, app)
     }
+
+    @Provides
+    @Singleton
+    @Named("hello1")
+    fun provideString1() = "String1"
+
+    @Provides
+    @Singleton
+    @Named("hello2")
+    fun provideString2() = "String2"
 
 }

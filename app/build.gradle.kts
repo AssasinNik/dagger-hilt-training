@@ -72,11 +72,19 @@ dependencies {
 
     implementation(libs.kotlin.stdlib)
 
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
     // Jetpack Compose
     implementation(libs.ui)
     implementation(libs.androidx.material)
     implementation(libs.ui.tooling)
     implementation(libs.androidx.navigation.compose)
+
+    // Retrofit и OkHttp
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+
+
 
     // Kotlin Coroutines
     implementation(libs.kotlinx.coroutines.core)
@@ -90,15 +98,7 @@ dependencies {
     // Hilt для Dependency Injection
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
-    implementation (libs.androidx.navigation.compose)
     implementation (libs.androidx.hilt.navigation.compose)
-    implementation (libs.androidx.hilt.lifecycle.viewmodel)
-
-    // ViewModel Compose
-    implementation (libs.androidx.lifecycle.viewmodel.compose)
-
-    // Retrofit
-    implementation (libs.retrofit)
-    implementation (libs.okhttp)
+    
 
 }
